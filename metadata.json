@@ -1,0 +1,5 @@
+{
+  "name": "Imagen and nano edit",
+  "description": "使用 image4 生成图片，再用 nano 修改",
+  "requestFramePermissions": []
+}

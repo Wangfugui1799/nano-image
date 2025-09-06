@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editing with Gemini Nano Banana</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@1.0.0"
+        }
+      }
+    </script>
+</head>
+<body>
+    <h1>Image Editing with Gemini "Nano Banana"</h1>
+
+    <form id="prompt-form">
+      <div class="form-group">
+        <label for="generation-prompt">1. Describe the image you want to create:</label>
+        <textarea id="generation-prompt" name="generation-prompt" rows="3" placeholder="e.g., A photorealistic image of a golden retriever puppy playing in a field of flowers."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="aspect-ratio">Aspect Ratio:</label>
+        <select id="aspect-ratio" name="aspect-ratio">
+          <option value="1:1" selected>Square (1:1)</option>
+          <option value="16:9">Widescreen (16:9)</option>
+          <option value="9:16">Portrait (9:16)</option>
+          <option value="4:3">Landscape (4:3)</option>
+          <option value="3:4">Tall (3:4)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="edit-prompt">2. Describe how you want to edit the image:</label>
+        <textarea id="edit-prompt" name="edit-prompt" rows="3" placeholder="e.g., Add a blue butterfly sitting on the puppy's nose." disabled></textarea>
+      </div>
+      <div class="button-group">
+        <button type="button" id="generate-button">Generate Image</button>
+        <button type="button" id="edit-button" disabled>Edit Image</button>
+      </div>
+    </form>
+
+    <main id="container">
+        <section id="original-container" aria-labelledby="original-heading">
+            <div class="header">
+              <h2 id="original-heading">Original Image</h2>
+              <div id="original-save-container"></div>
+            </div>
+            <div id="original-image-wrapper"></div>
+        </section>
+        <section id="edited-container" aria-labelledby="edited-heading">
+            <div class="header">
+              <h2 id="edited-heading">Edited Image</h2>
+              <div id="edited-save-container"></div>
+            </div>
+            <div id="edited-image-wrapper"></div>
+        </section>
+    </main>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>
